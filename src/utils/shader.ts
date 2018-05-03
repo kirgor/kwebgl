@@ -1,3 +1,5 @@
+import {loadFile} from './http'
+
 export const PROJECTION_MATRIX = 'uProjectionMatrix'
 export const MODEL_VIEW_MATRIX = 'uModelViewMatrix'
 export const VERTEX_POSITION_VECTOR = 'aVertexPositionVector'
@@ -50,7 +52,7 @@ export class Shader {
     setUniform2iv(key: string, vector: Float32Array | number[]): void {
         this.gl.uniform2iv(this.gl.getUniformLocation(this.program, key), vector)
     }
-    
+
     setUniform3fv(key: string, vector: Float32Array | number[]): void {
         this.gl.uniform3fv(this.gl.getUniformLocation(this.program, key), vector)
     }
@@ -58,7 +60,7 @@ export class Shader {
     setUniform3iv(key: string, vector: Float32Array | number[]): void {
         this.gl.uniform3iv(this.gl.getUniformLocation(this.program, key), vector)
     }
-    
+
     setUniform4fv(key: string, vector: Float32Array | number[]): void {
         this.gl.uniform4fv(this.gl.getUniformLocation(this.program, key), vector)
     }
@@ -88,6 +90,14 @@ export function createVertexShader(gl: WebGLRenderingContext, source: string): W
 
 export function createFragmentShader(gl: WebGLRenderingContext, source: string): WebGLShader {
     return createShader(gl, gl.FRAGMENT_SHADER, source)
+}
+
+export function loadVertexShader(gl: WebGLRenderingContext, uri: string): Promise<WebGLShader> {
+    return loadFile(uri).then(source => createVertexShader(gl, source))
+}
+
+export function loadFragmentShader(gl: WebGLRenderingContext, uri: string): Promise<WebGLShader> {
+    return loadFile(uri).then(source => createFragmentShader(gl, source))
 }
 
 export function createBasicVertexShader(gl: WebGLRenderingContext): WebGLShader {
