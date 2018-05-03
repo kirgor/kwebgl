@@ -1,5 +1,6 @@
-import Scene from './scene/Scene'
-
-export {
-    Scene
-}
+export * from './scene/Scene'
+export * from './scene/SceneObject'
+export * from './scene/Cube'
+export * from './utils/shader'
+export * from './utils/buffer'
+export * from './utils/matrix'

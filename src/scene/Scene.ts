@@ -1,8 +1,8 @@
-import SceneObject from './SceneObject'
+import {SceneObject} from './SceneObject'
 import {PROJECTION_MATRIX, MODEL_VIEW_MATRIX, Shader} from '../utils/shader'
 import {mat4} from 'gl-matrix'
 
-export default class Scene {
+export class Scene {
     private readonly gl: WebGLRenderingContext
     private readonly program: WebGLProgram
     private readonly shader: Shader

@@ -1,12 +1,12 @@
 {
   "name": "@kirgor/kwebgl",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "WebGL helper library",
   "author": "Kirill Gorobets",
   "license": "ISC",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "prepublish": "webpack"
   },
   "devDependencies": {
     "@types/gl-matrix": "^2.4.0",
@@ -17,6 +17,7 @@
     "webpack-cli": "^2.1.2"
   },
   "main": "dist/kwebgl.js",
+  "types": "dist/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kirgor/kwebgl.git"

@@ -2,7 +2,7 @@ import {createPositionBuffer, createIndexBuffer} from '../utils/buffer'
 import {mat4} from 'gl-matrix'
 import {Shader, VERTEX_POSITION_VECTOR} from '../utils/shader'
 
-export default class SceneObject {
+export class SceneObject {
     private modelViewMatrix: mat4
 
     render(gl: WebGLRenderingContext, program: WebGLProgram, shader: Shader): void {

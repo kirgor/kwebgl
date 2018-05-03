@@ -1,6 +1,6 @@
 import {mat4, vec3} from 'gl-matrix'
 
-class Matrix4Builder {
+export class Matrix4Builder {
     private readonly matrix: mat4
 
     constructor() {
@@ -46,8 +46,4 @@ export function perspective(fovy: number, aspect: number, near: number, far: num
     const matrix = mat4.create()
     mat4.perspective(matrix, fovy, aspect, near, far)
     return matrix
-}
-
-export function matrix4(): Matrix4Builder {
-    return new Matrix4Builder()
 }

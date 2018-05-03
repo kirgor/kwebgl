@@ -1,6 +1,6 @@
-import SceneObject from './SceneObject'
+import {SceneObject} from './SceneObject'
 
-export default class Cube extends SceneObject {
+export class Cube extends SceneObject {
     protected cacheInPrototype(): boolean {
         return true
     }

@@ -1,22 +1,24 @@
 const path = require('path');
 
 module.exports = {
-    mode: 'none',
-    entry: './src/index.ts',
+    mode: 'production',
+    entry: path.resolve(__dirname, 'src/index.ts'),
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'kwebgl.js',
+        library: 'kwebgl',
+        libraryTarget: 'umd'
+    },
     module: {
         rules: [
             {
                 test: /\.ts$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: 'ts-loader'
             }
         ]
     },
     resolve: {
         extensions: ['.ts', '.js']
-    },
-    output: {
-        filename: 'kwebgl.js',
-        path: path.resolve(__dirname, 'dist')
     }
 };
