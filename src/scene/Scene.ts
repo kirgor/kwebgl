@@ -1,5 +1,5 @@
 import {SceneObject} from './SceneObject'
-import {PROJECTION_MATRIX, MODEL_VIEW_MATRIX, Shader} from '../utils/shader'
+import {PROJECTION_MATRIX, Shader} from '../utils/shader'
 import {mat4} from 'gl-matrix'
 
 export class Scene {
@@ -53,7 +53,6 @@ export class Scene {
         shader.use()
         shader.setUniformMatrix4fv(PROJECTION_MATRIX, this.projectionMatrix)
         for (let sceneObject of this.sceneObjects) {
-            shader.setUniformMatrix4fv(MODEL_VIEW_MATRIX, sceneObject.getModelViewMatrix())
             sceneObject.render(gl, program, shader)
         }
     }
